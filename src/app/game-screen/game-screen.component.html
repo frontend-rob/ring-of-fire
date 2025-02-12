@@ -1,0 +1,29 @@
+<div class="player-container">
+    @for (player of game.players; track $index) {
+        <app-player [name]="player" [activePlayer]="$index == game.currentPlayer"></app-player>
+    }
+</div>
+
+<div class="game-field">
+    <div class="card-stack">
+        @for (item of [0,1,2,3]; track $index) {
+            <img class="playing-card" src="/img/cards/card-cover.svg" alt="card-cover" [ngStyle]="{'bottom.px': $index * 4}">
+        }
+
+        <img class="top-card" src="/img/cards/card-cover.svg" alt="card-cover" (click)="drawCard()">
+
+        @for (card of game.playedCards; track $index) {
+            <img class="played-card" src="/img/cards/{{ card }}.svg" alt="drawn-card">
+        }
+
+        @if (drawCardAnimation) {
+            <img class="drawn-card " src="/img/cards/{{ currentCard }}.svg" alt="drawn-card" (click)="drawCard()">
+        }
+    </div>
+</div>
+
+<app-card-info [card]="currentCard" class="description-card"></app-card-info>
+
+<button mat-mini-fab class="btn-add-user" (click)="openDialog()">
+    <mat-icon>add</mat-icon>
+</button>

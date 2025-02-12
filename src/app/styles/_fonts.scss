@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../../../public/fonts/inter-variable-font.ttf');
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: var(--base-content);
+}

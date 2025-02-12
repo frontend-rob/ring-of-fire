@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-base-100: #151719;
+    --bg-base-200: #0b0e0f;
+    --bg-neutral: #444444;
+    --bg-accent-1: #ffbbef;
+    --bg-accent-2: #bac7ff;
+    --bg-accent-3: #7FE6EF;
+    --bg-accent-4: #C7FFB9;
+    --bg-accent-5: #ffffb9;
+    --bg-accent-6: #ffcab7;
+    --base-content: #a1a1aa;
+    --primary-content: #e4e4e7;
+}
+
+body {
+    background-color: var(--bg-base-100);
+    font-family: 'Inter';
+    color: var(--base-content);
+}
+
+.player-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 2rem;
+    gap: 1rem;
+}

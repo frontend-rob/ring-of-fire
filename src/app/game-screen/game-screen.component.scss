@@ -1,0 +1,85 @@
+@use '../../styles.scss' as *;
+@use '../styles/buttons.scss' as *;
+@use '../styles/fonts.scss' as *;
+
+.game-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    background-color: var(--bg-base-100);
+}
+
+.card-stack {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35rem;
+    height: 35rem;
+
+    .playing-card {
+        position: absolute;
+        width: 10rem;
+        height: auto;
+    }
+}
+
+.top-card {
+    position: absolute;
+    bottom: 1rem;
+    width: 10rem;
+    height: auto;
+    cursor: pointer;
+    transition: all 125ms ease-in-out;
+
+    &:hover {
+        filter: brightness(1.1);
+        transform: translateY(-0.5rem) rotate(4deg);
+    }
+}
+
+// ggfls entfernen
+.played-card {
+    position: absolute;
+    width: 10rem;
+    height: auto;
+    transform: scale(1) translateY(-20rem) rotate(16deg) translateX(20rem);
+}
+
+.drawn-card {
+    width: 10rem;
+    height: auto;
+    animation: draw-card-animation 1250ms ease-in-out;
+    transform: scale(1) translateY(-20rem) rotate(16deg) translateX(20rem);
+}
+
+@keyframes draw-card-animation {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: scale(1.25) translateY(-3.5rem) rotate(0deg);
+    }
+
+    100% {
+        transform: scale(1) translateY(-20rem) rotate(16deg) translateX(20rem);
+    }
+}
+
+.btn-add-user {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+
+.description-card {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    bottom: 2rem;
+}

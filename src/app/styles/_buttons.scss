@@ -1,0 +1,66 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    gap: .5rem;
+    height: 3rem;
+    padding: 0 1rem;
+    background-color: color-mix(in srgb, var(--bg-neutral) 70%, transparent 70%);
+    color: var(--base-content);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    border: unset;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: transform 100ms cubic-bezier(0, 0, 0.2, 1), background-color 100ms cubic-bezier(0, 0, 0.2, 1);
+    user-select: none;
+}
+
+.btn svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: var(--base-content);
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn:hover {
+    background-color: var(--bg-neutral);
+    color: var(--primary-content);
+}
+
+.btn:hover svg {
+    fill: var(--primary-content);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--bg-base-200);
+}
+
+.btn-primary svg {
+    fill: var(--bg-base-200);
+}
+
+.btn-primary:hover {
+    background-color: color-mix(in srgb, var(--primary) 70%, #ff52d9 30%);
+    color: var(--bg-base-200);
+}
+
+.btn-primary:hover svg {
+    fill: var(--bg-base-200);
+}
+
+.btn-ghost {
+    background-color: unset;
+}
+
+.btn-ghost:hover {
+    background-color: color-mix(in srgb, var(--bg-neutral) 70%, transparent 70%);
+}
