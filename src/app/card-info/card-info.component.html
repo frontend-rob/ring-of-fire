@@ -1,4 +1,8 @@
 <div class="card-content">
-    <h2>{{ card ? title : 'Pick a card' }}</h2>
-    <span>{{ card ? description : 'Please click on the card stack to draw the next card.' }}</span>
+    <h2>
+        {{ card ? title : (game.hasPlayers() ? 'Draw a Card' : 'Add Players') }}
+    </h2>
+    <span>
+        {{ card ? description : (game.hasPlayers() ? 'Please click on the card stack or the button to draw the next card.' : 'Please share the URL and invite friends first.') }}
+    </span>
 </div>

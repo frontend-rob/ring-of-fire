@@ -28,9 +28,6 @@
         background-color: var(--bg-accent-5);
         filter: blur(8rem);
         z-index: 0;
-    }
-
-    button {
-        z-index: 100;
+        pointer-events: none;
     }
 }

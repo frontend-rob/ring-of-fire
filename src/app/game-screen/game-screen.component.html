@@ -1,29 +1,39 @@
-<div class="player-container">
-    @for (player of game.players; track $index) {
-        <app-player [name]="player" [activePlayer]="$index == game.currentPlayer"></app-player>
-    }
-</div>
-
-<div class="game-field">
-    <div class="card-stack">
-        @for (item of [0,1,2,3]; track $index) {
-            <img class="playing-card" src="/img/cards/card-cover.svg" alt="card-cover" [ngStyle]="{'bottom.px': $index * 4}">
-        }
-
-        <img class="top-card" src="/img/cards/card-cover.svg" alt="card-cover" (click)="drawCard()">
-
-        @for (card of game.playedCards; track $index) {
-            <img class="played-card" src="/img/cards/{{ card }}.svg" alt="drawn-card">
-        }
-
-        @if (drawCardAnimation) {
-            <img class="drawn-card " src="/img/cards/{{ currentCard }}.svg" alt="drawn-card" (click)="drawCard()">
-        }
+<main>
+    <div class="player-container">
+        <div *ngFor="let player of game.players; let i = index">
+            <app-player [player]="player" [activePlayer]="i == game.currentPlayer"></app-player>
+        </div>
     </div>
-</div>
+    <div class="game-field">
+        <div class="card-stack">
 
-<app-card-info [card]="currentCard" class="description-card"></app-card-info>
+            <img *ngFor="let item of [0,1,2,3]; let i = index" class="playing-card" src="/img/cards/card-cover.svg"
+                alt="card-cover" [ngStyle]="{'bottom.px': i * 4}">
 
-<button mat-mini-fab class="btn-add-user" (click)="openDialog()">
-    <mat-icon>add</mat-icon>
-</button>
+            <img class="top-card" src="/img/cards/card-cover.svg" alt="card-cover" (click)="drawCard()">
+
+            <img *ngFor="let card of game.playedCards; let i = index" class="played-card"
+                src="/img/cards/{{ card }}.svg" alt="drawn-card">
+
+            <img *ngIf="game.drawCardAnimation" class="drawn-card" src="/img/cards/{{ game.currentCard }}.svg"
+                alt="drawn-card" (click)="drawCard()">
+            
+        </div>
+
+        <p> {{game.playedCards.length}} / 52 </p>
+
+        <button class="btn btn-draw" (click)="drawCard()">
+            Draw Card
+        </button>
+    </div>
+
+    <app-card-info [card]="game.currentCard" [game]="game" class="description-card"></app-card-info>
+
+    <button class="btn btn-add-user" (click)="openDialog()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 256 256">
+            <path
+                d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z">
+            </path>
+        </svg>
+    </button>
+</main>

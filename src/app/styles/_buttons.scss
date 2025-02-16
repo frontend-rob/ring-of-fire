@@ -64,3 +64,10 @@
 .btn-ghost:hover {
     background-color: color-mix(in srgb, var(--bg-neutral) 70%, transparent 70%);
 }
+
+.btn-circle {
+    width: 3rem;
+    height: 3rem;
+    padding: 0.5rem; 
+    border-radius: 2rem;
+}

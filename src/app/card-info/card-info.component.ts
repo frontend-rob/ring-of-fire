@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Game } from '../../models/game';
 
 @Component({
     selector: 'app-card-info',
@@ -10,25 +11,26 @@ import { Component, Input } from '@angular/core';
 export class CardInfoComponent {
 
     cardAction = [
-        { title: 'Set the pace', description: 'Everyone drinks until you stop. Show ‘em who’s in charge!' },
-        { title: 'Choose', description: 'You’re the boss! Pick a player who has to drink. No arguing!' },
-        { title: 'Me', description: 'Tough luck! Grab your drink and chug.' },
-        { title: 'Drink some more', description: 'Everyone drinks for 4 seconds. No excuses, no mercy!' },
-        { title: 'Thumb master', description: 'Place your thumb on the table at any time. The last player to notice and copy you drinks! You can only use this power once, so time it right.' },
-        { title: 'Mix it up', description: 'Swap drinks with another player for the rest of the game. Hope you like surprises!' },
-        { title: 'Hands to heaven', description: 'Throw your hands up! The last person to follow suits drinks. Just like the thumb master, you can only use this power once – make it count!' },
-        { title: 'Mate', description: 'Choose a drinking buddy. From now on, every time you drink, they drink too. Partners in crime!' },
-        { title: 'Bust a rhyme', description: 'Say a word. The next player has to rhyme with it. Keep going until someone hesitates or repeats a word. Loser drinks!' },
-        { title: 'Categories', description: 'Pick a category (like beer brands). The next player has to say something that fits. If someone hesitates or repeats, they drink!' },
-        { title: 'Make a rule', description: 'Create a new rule for the group, like “no one can say ‘drink.’” Break the rule? Take a sip!' },
-        { title: 'Question master', description: 'If anyone answers a question you ask, they drink! You keep this power until the next queen is drawn, so trap as many people as you can!' },
-        { title: 'The king’s cup', description: 'Pour a bit of your drink into the king’s cup in the middle. Whoever draws the last king has to drink the whole thing. Pray for mercy!' },
+        { title: 'Set the Pace', description: 'Everyone drinks until you stop. Show ‘em who’s in charge! Keep it fun and fair.' },
+        { title: 'Choose', description: 'You’re the boss! Pick a player who has to drink. No arguing! Make it a good choice.' },
+        { title: 'Me', description: 'Tough luck! Grab your drink and chug. Better luck next time!' },
+        { title: 'Drink Some More', description: 'Everyone drinks for 4 seconds. No excuses, no mercy! Stay hydrated!' },
+        { title: 'Thumb Master', description: 'Place your thumb on the table. Last to notice drinks! Use this power wisely.' },
+        { title: 'Mix It Up', description: 'Swap drinks with another player. Hope you like surprises! Enjoy the new taste.' },
+        { title: 'Hands To Heaven', description: 'Throw your hands up! Last to follow drinks. Use this power wisely.' },
+        { title: 'Mate', description: 'Choose a drinking buddy. Every time you drink, they drink too. Partners in crime!' },
+        { title: 'Bust a Rhyme', description: 'Say a word. Next player rhymes. Hesitate or repeat, you drink! Keep it going!' },
+        { title: 'Categories', description: 'Pick a category. Next player says something that fits. Hesitate or repeat, you drink!' },
+        { title: 'Make a Rule', description: 'Create a new rule for the group. Break the rule, take a sip! Be creative!' },
+        { title: 'Question Master', description: 'If anyone answers your question, they drink! Keep this power until the next queen.' },
+        { title: 'The King’s Cup', description: 'Pour a bit of your drink into the king’s cup. Last king drawn drinks the whole thing.' },
     ];
 
     title: string = '';
     description: string = '';
 
     @Input() card?: string;
+    @Input() game!: Game;
 
     ngOnChanges(): void {
         if (this.card) {
@@ -38,4 +40,4 @@ export class CardInfoComponent {
             this.description = this.cardAction[cardNumber - 1].description;
         }
     }
-}
+};

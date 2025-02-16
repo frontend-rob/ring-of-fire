@@ -1,12 +1,50 @@
-<h2 mat-dialog-title>Add new player</h2>
-<mat-dialog-content>
-    <p>Please enter your name.</p>
-    <mat-form-field>
-        <mat-label>Name</mat-label>
-        <input matInput [(ngModel)]="name" />
-    </mat-form-field>
-</mat-dialog-content>
-<mat-dialog-actions>
-    <button mat-button [disabled]="name.length == 0" [mat-dialog-close]="name" cdkFocusInitial>Ok</button>
-    <button mat-button (click)="closeModal()">No Thanks</button>
-</mat-dialog-actions>
+<div class="modal-wrapper">
+    <div class="custom-modal">
+        <div class="custom-modal-header">
+            <h2>Add new player</h2>
+            <button class="btn btn-circle" (click)="closeModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 256 256">
+                    <path
+                        d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div class="custom-modal-body">
+            <p>Please enter your name, select a color, and choose an avatar.</p>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" [(ngModel)]="name" />
+            </div>
+            <div class="form-group">
+                <label for="color">Color</label>
+                <div class="colors-fields">
+                    <button *ngFor="let color of colors" class="btn color-item" [ngStyle]="{'background-color': color}"
+                        (click)="selectColor(color)" [class.selected-color]="color === selectedColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="avatar">Avatar</label>
+                <div class="avatar-fields">
+                    <img *ngFor="let avatar of avatars" class="btn avatar-icon"
+                        [class.selected-avatar]="avatar === selectedAvatar"
+                        [ngStyle]="{'background-color': avatar === selectedAvatar ? selectedColor : 'white'}"
+                        [src]="'../../../img/avatars/' + avatar + '.svg'" alt="Avatar Image"
+                        (click)="selectAvatar(avatar)">
+                </div>
+            </div>
+        </div>
+        <div class="custom-modal-footer">
+            <button class="btn" [disabled]="name.length == 0 || selectedColor.length == 0 || selectedAvatar.length == 0"
+                (click)="addPlayer()">Ok
+            </button>
+        </div>
+    </div>
+</div>

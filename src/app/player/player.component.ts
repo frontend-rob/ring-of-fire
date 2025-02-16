@@ -3,17 +3,13 @@ import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-player',
+    standalone: true,
     imports: [CommonModule],
     templateUrl: './player.component.html',
-    styleUrl: './player.component.scss'
+    styleUrls: ['./player.component.scss']
 })
 
 export class PlayerComponent {
-
-    @Input() name: string = '';
+    @Input() player!: { name: string; color: string; avatar: string };
     @Input() activePlayer: boolean = false;
-
-    game = {
-        players: []
-    };
-}
+};

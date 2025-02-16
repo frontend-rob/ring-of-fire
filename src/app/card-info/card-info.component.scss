@@ -5,9 +5,14 @@
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    gap: 0.5rem;
-    max-width: 40rem;
+    gap: 1rem;
+    max-width: 48rem;
     width: 100%;
     border: 1px solid var(--bg-neutral);
     border-radius: 1rem;
+    text-align: center;
+
+    > h2 {
+        text-decoration: underline 1px wavy var(--bg-neutral);
+    }
 }

@@ -2,13 +2,24 @@
 @use '../styles/buttons.scss' as *;
 @use '../styles/fonts.scss' as *;
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 100vh;
+    height: 100%;
+    padding: 1rem;
+    gap: 3rem;
+}
+
 .game-field {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    gap: 2rem;
     background-color: var(--bg-base-100);
 }
 
@@ -17,12 +28,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 35rem;
-    height: 35rem;
+    flex: 1;
 
     .playing-card {
         position: absolute;
-        width: 10rem;
+        width: 16rem;
         height: auto;
     }
 }
@@ -30,42 +40,42 @@
 .top-card {
     position: absolute;
     bottom: 1rem;
-    width: 10rem;
+    width: 16rem;
     height: auto;
     cursor: pointer;
     transition: all 125ms ease-in-out;
 
     &:hover {
         filter: brightness(1.1);
-        transform: translateY(-0.5rem) rotate(4deg);
+        transform: rotate(4deg);
     }
 }
 
 .played-card {
     position: absolute;
-    width: 10rem;
+    width: 16rem;
     height: auto;
-    transform: scale(1) translateY(-20rem) rotate(16deg) translateX(20rem);
+    transform: scale(1) rotate(16deg);
 }
 
 .drawn-card {
-    width: 10rem;
+    width: 16rem;
     height: auto;
     animation: draw-card-animation 1250ms ease-in-out;
-    transform: scale(1) translateY(-20rem) rotate(16deg) translateX(20rem);
+    transform: scale(1) rotate(16deg);
 }
 
 @keyframes draw-card-animation {
     0% {
-        transform: scale(1) rotate(0deg);
+        transform: scale(1) rotateY(90deg);
     }
 
     50% {
-        transform: scale(1.25) translateY(-3.5rem) rotate(0deg);
+        transform: scale(1.25) rotate(0deg);
     }
 
     100% {
-        transform: scale(1) translateY(-20rem) rotate(16deg) translateX(20rem);
+        transform: scale(1) rotate(16deg);
     }
 }
 
@@ -76,9 +86,15 @@
 }
 
 .description-card {
-    position: absolute;
     display: flex;
     justify-content: center;
     width: 100%;
     bottom: 2rem;
+}
+
+
+@media screen and (max-width: 30rem) {
+    .btn-draw {
+        width: 100%;
+    }
 }
