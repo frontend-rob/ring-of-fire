@@ -21,12 +21,13 @@
     flex-direction: column;
     max-width: 36rem;
     width: 100%;
-    height: 100%;
+    height: auto;
     margin: auto;
     padding: 1.5rem;
     border-radius: 1rem;
+    border: 1px solid var(--bg-neutral);
     background-color: var(--bg-base-100);
-    gap: 2rem;
+    gap: 2.5rem;
     overflow-y: auto;
 }
 
@@ -37,31 +38,49 @@
 }
 
 .custom-modal-body {
-
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
+
     .form-group {
-        border: 1px solid var(--bg-neutral);
-        border-radius: 1rem;
-        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
 
         label {
             display: block;
-            margin-bottom: 1rem;
             font-weight: bold;
         }
 
-        input,
-        select {
+        input {
             width: 100%;
-            padding: 0.5rem;
+            height: 3rem;
+            padding: 0.75rem;
             border: 1px solid var(--bg-neutral);
-            border-radius: 0.5rem;
-            height: 2.5rem;
+            border-radius: 0.75rem;
             background-color: var(--bg-base-100);
             color: var(--base-content);
+            font-size: 1rem;
         }
+
+        input:focus-visible {
+            border: 1px solid var(--bg-primary);
+            outline: none;
+        }
+    }
+
+    .form-group-inner {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem 0;
+        overflow-x: hidden;
+    }
+
+    .form-group:nth-of-type(n+2) {
+        gap: 1rem;
+        padding: 1rem;
+        border-radius: 0.75rem;
+        border: 1px solid var(--bg-neutral);
     }
 }
 
@@ -73,8 +92,8 @@
     gap: 1rem;
 
     >.color-item {
-        height: 4rem;
         width: 4rem;
+        height: 4rem;
         border-radius: 50%;
         padding: 0.5rem;
         cursor: pointer;
@@ -87,8 +106,8 @@
 
     >.color-item svg {
         display: none;
-        height: 2rem;
         width: 2rem;
+        height: 2rem;
     }
 
     >.color-item.selected-color svg {
@@ -124,23 +143,31 @@
 
 .custom-modal-footer {
     display: flex;
-    justify-content: flex-end;
-    gap: 10px;
+    justify-content: center;
+}
 
-    button {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
+@media screen and (max-width: 40rem) {
+    .modal-wrapper {
+        padding: unset;
+    }
 
-        &:first-child {
-            background-color: #007bff;
-            color: white;
-        }
+    .custom-modal {
+        height: 100%;
+        border-radius: unset;
+    }
 
-        &:last-child {
-            background-color: #f8f9fa;
-            color: #333;
-        }
+    .form-group-inner {
+        overflow-x: auto !important;
+        padding-bottom: 1rem !important;
+    }
+
+    .colors-fields,
+    .avatar-fields {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+
+    .custom-modal-footer button {
+        width: 100%;
     }
 }

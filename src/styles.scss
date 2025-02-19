@@ -8,6 +8,7 @@
     --bg-base-100: #151719;
     --bg-base-200: #0b0e0f;
     --bg-neutral: #333333;
+    --bg-primary: #e90364;
     --bg-accent-1: #ffbbef;
     --bg-accent-2: #bac7ff;
     --bg-accent-3: #7fe6ef;
@@ -16,6 +17,8 @@
     --bg-accent-6: #ffcab7;
     --base-content: #a1a1aa;
     --primary-content: #e4e4e7;
+    --thumb-color: #333333;
+    --track-color: #151719;
 }
 
 body {
@@ -25,9 +28,23 @@ body {
     height: 100vh;
 }
 
-.player-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumb-color) var(--track-color);
 }
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--track-color);    
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--thumb-color);
+    border-radius: 50%;
+}
+
+

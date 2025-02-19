@@ -12,6 +12,13 @@ main {
     gap: 3rem;
 }
 
+.player-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
 .game-field {
     display: flex;
     flex-direction: column;
@@ -28,11 +35,13 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
     flex: 1;
 
     .playing-card {
         position: absolute;
-        width: 16rem;
+        width: 14rem;
         height: auto;
     }
 }
@@ -40,7 +49,7 @@ main {
 .top-card {
     position: absolute;
     bottom: 1rem;
-    width: 16rem;
+    width: 14rem;
     height: auto;
     cursor: pointer;
     transition: all 125ms ease-in-out;
@@ -53,13 +62,13 @@ main {
 
 .played-card {
     position: absolute;
-    width: 16rem;
+    width: 14rem;
     height: auto;
     transform: scale(1) rotate(16deg);
 }
 
 .drawn-card {
-    width: 16rem;
+    width: 14rem;
     height: auto;
     animation: draw-card-animation 1250ms ease-in-out;
     transform: scale(1) rotate(16deg);
@@ -96,5 +105,9 @@ main {
 @media screen and (max-width: 30rem) {
     .btn-draw {
         width: 100%;
+    }
+
+    .description-card {
+        display: none;
     }
 }

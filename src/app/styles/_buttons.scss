@@ -40,21 +40,21 @@
 }
 
 .btn-primary {
-    background-color: var(--primary);
-    color: var(--bg-base-200);
+    background-color: var(--bg-primary);
+    color: var(--primary-content);
 }
 
 .btn-primary svg {
-    fill: var(--bg-base-200);
+    fill: var(--primary-content);
 }
 
 .btn-primary:hover {
-    background-color: color-mix(in srgb, var(--primary) 70%, #ff52d9 30%);
-    color: var(--bg-base-200);
+    background-color: color-mix(in srgb, var(--bg-primary) 90%, var(--primary-content) 10%);
+    color: var(--primary-content);
 }
 
 .btn-primary:hover svg {
-    fill: var(--bg-base-200);
+    fill: var(--primary-content);
 }
 
 .btn-ghost {

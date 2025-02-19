@@ -7,29 +7,34 @@
     <div class="game-field">
         <div class="card-stack">
 
-            <img *ngFor="let item of [0,1,2,3]; let i = index" class="playing-card" src="/img/cards/card-cover.svg"
-                alt="card-cover" [ngStyle]="{'bottom.px': i * 4}">
+            <img class="playing-card" src="/img/cards/card-cover.svg" alt="card-cover"
+                *ngFor="let item of [0,1,2,3]; let i = index" 
+                [ngStyle]="{'bottom.px': i * 4}" >
 
             <img class="top-card" src="/img/cards/card-cover.svg" alt="card-cover" (click)="drawCard()">
 
-            <img *ngFor="let card of game.playedCards; let i = index" class="played-card"
-                src="/img/cards/{{ card }}.svg" alt="drawn-card">
+            <img class="played-card" src="/img/cards/{{ card }}.svg" alt="drawn-card"
+                *ngFor="let card of game.playedCards; let i = index">
 
-            <img *ngIf="game.drawCardAnimation" class="drawn-card" src="/img/cards/{{ game.currentCard }}.svg"
-                alt="drawn-card" (click)="drawCard()">
+            <img class="drawn-card" src="/img/cards/{{ game.currentCard }}.svg" alt="drawn-card"
+                *ngIf="game.drawCardAnimation"
+                (click)="drawCard()">
             
         </div>
 
         <p> {{game.playedCards.length}} / 52 </p>
 
-        <button class="btn btn-draw" (click)="drawCard()">
+        <button class="btn btn-draw" 
+                [class.btn-primary]="this.game.players.length > 0" 
+                [style.cursor]="this.game.players.length == 0 ? 'not-allowed' : 'pointer'" 
+                (click)="drawCard()">
             Draw Card
         </button>
     </div>
 
-    <app-card-info [card]="game.currentCard" [game]="game" class="description-card"></app-card-info>
+    <app-card-info class="description-card" [card]="game.currentCard" [game]="game"></app-card-info>
 
-    <button class="btn btn-add-user" (click)="openDialog()">
+    <button class="btn btn-primary btn-add-user" (click)="openDialog()">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 256 256">
             <path
                 d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z">

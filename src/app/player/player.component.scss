@@ -6,9 +6,16 @@
     display: flex;
     align-items: center;
     width: auto;
-    padding: 0.5rem;
+    padding: 0.25rem;
     padding-right: 1.5rem;
+    border: 1px solid transparent;
     gap: 1rem;
+
+    &.player-card:hover {
+        cursor: pointer;
+        border: 1px solid var(--bg-neutral);
+        border-radius: 3rem;
+    }
 
     .player-avatar {
         display: flex;
