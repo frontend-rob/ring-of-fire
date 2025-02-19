@@ -41,15 +41,15 @@ main {
 
     .playing-card {
         position: absolute;
-        width: 14rem;
+        width: 12rem;
         height: auto;
     }
 }
 
 .top-card {
     position: absolute;
-    bottom: 1rem;
-    width: 14rem;
+    transform: translateY(-.75rem);
+    width: 12rem;
     height: auto;
     cursor: pointer;
     transition: all 125ms ease-in-out;
@@ -62,21 +62,21 @@ main {
 
 .played-card {
     position: absolute;
-    width: 14rem;
+    width: 12rem;
     height: auto;
-    transform: scale(1) rotate(16deg);
+    transform: scale(1) rotate(16deg) translateY(-3rem);
 }
 
 .drawn-card {
-    width: 14rem;
+    width: 12rem;
     height: auto;
     animation: draw-card-animation 1250ms ease-in-out;
-    transform: scale(1) rotate(16deg);
+    transform: scale(1) rotate(16deg) translateY(-3rem);
 }
 
 @keyframes draw-card-animation {
     0% {
-        transform: scale(1) rotateY(90deg);
+        transform: scale(1) rotateY(90deg) translateY(-.75rem);
     }
 
     50% {
@@ -84,7 +84,7 @@ main {
     }
 
     100% {
-        transform: scale(1) rotate(16deg);
+        transform: scale(1) rotate(16deg) translateY(-3rem);
     }
 }
 

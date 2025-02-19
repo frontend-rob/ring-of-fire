@@ -59,6 +59,11 @@ export class GameScreenComponent {
     }
 
     drawCard() {
+        if (this.game.stack.length === 0) {
+            alert('No more cards in the stack!');
+            return;
+        }
+
         if (this.game.players.length > 0 && !this.game.drawCardAnimation) {
             this.game.currentCard = this.game.stack.pop()!;
             this.game.drawCardAnimation = true;

@@ -6,10 +6,9 @@
     </div>
     <div class="game-field">
         <div class="card-stack">
-
             <img class="playing-card" src="/img/cards/card-cover.svg" alt="card-cover"
                 *ngFor="let item of [0,1,2,3]; let i = index" 
-                [ngStyle]="{'bottom.px': i * 4}" >
+                [style.transform]="'translateY(' + (i * -4) + 'px)'" >
 
             <img class="top-card" src="/img/cards/card-cover.svg" alt="card-cover" (click)="drawCard()">
 
@@ -18,8 +17,7 @@
 
             <img class="drawn-card" src="/img/cards/{{ game.currentCard }}.svg" alt="drawn-card"
                 *ngIf="game.drawCardAnimation"
-                (click)="drawCard()">
-            
+                (click)="drawCard()">            
         </div>
 
         <p> {{game.playedCards.length}} / 52 </p>
