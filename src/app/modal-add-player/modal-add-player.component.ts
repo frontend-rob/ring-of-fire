@@ -52,4 +52,8 @@ export class ModalAddPlayerComponent {
         this.selectedColor = color;
         console.log('Selected color:', color);
     }
+
+    isFormValid(): boolean {
+        return this.name.length > 0 && this.selectedColor.length > 0 && this.selectedAvatar.length > 0;
+    }
 };

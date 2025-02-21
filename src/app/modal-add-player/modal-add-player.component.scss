@@ -16,9 +16,10 @@
     backdrop-filter: blur(0.5rem);
 }
 
-.custom-modal {
+.add-player-modal {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     max-width: 36rem;
     width: 100%;
     height: auto;
@@ -31,13 +32,13 @@
     overflow-y: auto;
 }
 
-.custom-modal-header {
+.modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.custom-modal-body {
+.modal-body {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -141,7 +142,7 @@
     }
 }
 
-.custom-modal-footer {
+.modal-footer {
     display: flex;
     justify-content: center;
 }
@@ -151,7 +152,7 @@
         padding: unset;
     }
 
-    .custom-modal {
+    .add-player-modal {
         height: 100%;
         border-radius: unset;
     }
@@ -167,7 +168,7 @@
         justify-content: flex-start;
     }
 
-    .custom-modal-footer button {
+    .modal-footer button {
         width: 100%;
     }
 }

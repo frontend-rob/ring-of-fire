@@ -4,17 +4,15 @@
 
 .player-card {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: auto;
-    padding: 0.25rem;
-    padding-right: 1.5rem;
-    border: 1px solid transparent;
     gap: 1rem;
 
     &.player-card:hover {
         cursor: pointer;
-        border: 1px solid var(--bg-neutral);
-        border-radius: 3rem;
+        color: var(--primary-content);
     }
 
     .player-avatar {
@@ -29,5 +27,20 @@
 
     span {
         font-size: 1.25rem;
+    }
+}
+
+@media screen and (max-width: 30rem) {
+    .player-card {
+        gap: 0.5rem;
+
+        .player-avatar {
+            height: 3rem;
+            width: 3rem;
+        }
+
+        span {
+            font-size: 0.875rem;
+        }
     }
 }

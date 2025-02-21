@@ -1,6 +1,6 @@
 <div class="modal-wrapper">
-    <div class="custom-modal">
-        <div class="custom-modal-header">
+    <div class="add-player-modal">
+        <div class="modal-header">
             <h2>Add new player</h2>
             <button class="btn btn-circle" (click)="closeModal()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 256 256">
@@ -10,7 +10,7 @@
                 </svg>
             </button>
         </div>
-        <div class="custom-modal-body">
+        <div class="modal-body">
             <p>Please enter your name, select a color, and choose an avatar.</p>
             <div class="form-group">
                 <label for="name">Name</label>
@@ -49,9 +49,11 @@
                 </div>
             </div>
         </div>
-        <div class="custom-modal-footer">
-            <button class="btn btn-primary"
-                [disabled]="name.length == 0 || selectedColor.length == 0 || selectedAvatar.length == 0"
+        <div class="modal-footer">
+            <button class="btn"
+                [class.btn-primary]="isFormValid()"
+                [style.cursor]="isFormValid() ? 'pointer' : 'not-allowed'"
+                [disabled]="!isFormValid()"
                 (click)="addPlayer()">
                 Add Player
             </button>

@@ -1,7 +1,10 @@
+@use '@angular/material' as mat;
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all 125ms ease;
 }
 
 :root {
@@ -9,6 +12,7 @@
     --bg-base-200: #0b0e0f;
     --bg-neutral: #333333;
     --bg-primary: #e90364;
+    --bg-success: #0bbd77;
     --bg-accent-1: #ffbbef;
     --bg-accent-2: #bac7ff;
     --bg-accent-3: #7fe6ef;
@@ -28,7 +32,6 @@ body {
     height: 100vh;
 }
 
-
 * {
     scrollbar-width: thin;
     scrollbar-color: var(--thumb-color) var(--track-color);
@@ -39,7 +42,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--track-color);    
+    background: var(--track-color);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -47,4 +50,21 @@ body {
     border-radius: 50%;
 }
 
+@include mat.snack-bar-overrides((container-color: var(--bg-base-100),
+        supporting-text-color: var(--primary-content),
+        supporting-text-size: 1rem,
+        button-color: var(--bg-success),
+    ));
 
+
+.mat-mdc-simple-snack-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.mdc-snackbar__surface {
+    padding: 1rem;
+}

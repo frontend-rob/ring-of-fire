@@ -27,7 +27,7 @@
         border-radius: 4rem;
         background-color: var(--primary-content);
         filter: blur(8rem);
-        z-index: 0;
+        z-index: -10;
         pointer-events: none;
     }
 }

@@ -10,6 +10,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ModalAddPlayerComponent } from '../modal-add-player/modal-add-player.component';
 import { Firestore, collection, collectionData, addDoc, doc, docData, updateDoc } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
+import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
     selector: 'app-game-screen',
@@ -21,7 +23,9 @@ import { ActivatedRoute } from '@angular/router';
         MatButtonModule,
         MatIconModule,
         MatDialogModule,
-        CardInfoComponent
+        CardInfoComponent,
+        MatSnackBarModule
+
     ],
     templateUrl: './game-screen.component.html',
     styleUrls: ['./game-screen.component.scss']
@@ -34,7 +38,7 @@ export class GameScreenComponent {
     game!: Game;
     gameID!: string;
 
-    constructor(public dialog: MatDialog, private route: ActivatedRoute) { }
+    constructor(public dialog: MatDialog, private route: ActivatedRoute, private snackBar: MatSnackBar) { }
 
     ngOnInit(): void {
         this.newGame();
@@ -81,7 +85,7 @@ export class GameScreenComponent {
         }
     }
 
-    openDialog(): void {
+    openAddPlayerDialog(): void {
         const dialogRef = this.dialog.open(ModalAddPlayerComponent);
 
         dialogRef.afterClosed().subscribe((player: { name: string, color: string, avatar: string }) => {
@@ -89,6 +93,17 @@ export class GameScreenComponent {
                 this.game.players.push(player);
                 this.saveGame();
             }
+        });
+    }
+
+    copyGameURL(): void {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            this.snackBar.open('URL copied to clipboard!', 'Close', {
+                duration: 3000,
+                horizontalPosition: 'center',
+                verticalPosition: 'top'
+            });
         });
     }
 
