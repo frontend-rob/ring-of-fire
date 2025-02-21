@@ -1,7 +1,7 @@
 @use '../../styles.scss' as *;
 @use '../styles/fonts.scss' as *;
 
-.card-content {
+.info-card-content {
     display: flex;
     flex-direction: column;
     padding: 1rem;
@@ -12,7 +12,21 @@
     border-radius: 1rem;
     text-align: center;
 
-    > h2 {
+    >h2 {
         text-decoration: underline 1px wavy var(--bg-neutral);
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 25rem) {
+    .info-card-content {
+        gap: 0.5rem;
+        >h2 {
+            font-size: 1rem;
+        }
+
+        >span {
+            font-size: 0.875rem;
+        }
     }
 }
