@@ -87,6 +87,7 @@ Since this is a learning project, further contributions aren’t expected. Howev
 The source code for this project is open-source and distributed under the MIT License and may be used as a reference. Please note that external content from third-party sources is included. For detailed licensing information, refer to the respective websites:
 
 - [FreePik](https://freepik.com/)
+- [Phosphor Icons](https://phosphoricons.com/)
 
 You can find further details, including folder structures and links to relevant content sources, in the readme files located within the public folder of this repository.
 
