@@ -43,7 +43,7 @@
                             *ngFor="let avatar of avatars"
                             [class.selected-avatar]="avatar === selectedAvatar"
                             [ngStyle]="{'background-color': avatar === selectedAvatar ? selectedColor : 'white'}"
-                            [src]="'../../../img/avatars/' + avatar + '.svg'" alt="Avatar Image"
+                            [src]="'img/avatars/' + avatar + '.svg'" alt="Avatar Image"
                             (click)="selectAvatar(avatar)">
                     </div>
                 </div>

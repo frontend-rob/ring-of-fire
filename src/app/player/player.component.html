@@ -1,6 +1,6 @@
 <div class="player-card" (mouseenter)="hover = true" (mouseleave)="hover = false">
     <div class="player-avatar" [ngStyle]="hover || activePlayer ? {'background-color': player.color} : {'background-color': 'var(--bg-neutral)'}">
-        <img [src]="'../../../img/avatars/' + player.avatar + '.svg'" alt="Avatar Image">
+        <img [src]="'img/avatars/' + player.avatar + '.svg'" alt="Avatar Image">
     </div>
     <span [ngStyle]="{'color': activePlayer ? 'var(--primary-content)' : 'inherit'}"> {{ player.name }} </span>
 </div>

@@ -7,6 +7,3 @@ export const routes: Routes = [
     { path: '', component: StartScreenComponent },
     { path: 'game/:id', component: GameScreenComponent },
 ];
-
-
-//game/:id --> indicates a variable after game/012345
