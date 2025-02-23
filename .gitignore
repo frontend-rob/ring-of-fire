@@ -45,3 +45,7 @@ Thumbs.db
 .firebase
 *-debug.log
 .runtimeconfig.json
+
+# Images
+public/img/avatars/*.svg
+public/img/cards/*.svg
